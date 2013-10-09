@@ -1,0 +1,5 @@
+Example login screen
+
+Email address  _________
+Password       _________
+               [Login]

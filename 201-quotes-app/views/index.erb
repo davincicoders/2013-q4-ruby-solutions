@@ -1,0 +1,17 @@
+<h1>Quotes</h1>
+
+<% Quote.all.each do |quote| %>
+  <blockquote>
+    <p><%= quote.text %></p>
+    <small><%= quote.author %></small>
+  </blockquote>
+<% end %>
+
+<h2>Add new quote</h2>
+<p>
+  <%= text_area_tag "new_quote", '', placeholder: "Quote" %>
+  <br>
+  <%= text_field_tag "new_author", '', placeholder: "Author" %>
+  <br>
+  <%= submit_tag "Add" %>
+</p>

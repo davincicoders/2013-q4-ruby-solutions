@@ -1,0 +1,13 @@
+Example of nested lists
+
+fruits
+
+apples
+oranges
+pears
+
+vegetables
+
+broccoli
+peas
+carrots

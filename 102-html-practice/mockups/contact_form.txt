@@ -1,0 +1,13 @@
+Example contact form
+
+From 
+________
+
+Subject 
+________
+
+Body 
+________
+________
+
+[Send]
