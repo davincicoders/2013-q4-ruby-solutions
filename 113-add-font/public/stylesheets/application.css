@@ -1,0 +1,17 @@
+html {
+  background-color: #eee;
+}
+
+@font-face {
+  font-family: "Sanchez Regular";
+  src: url("/fonts/Sanchez-Regular.ttf")
+}
+body {
+  font-family: "Sanchez Regular", serif;
+  width: 760px;
+  margin: 20px auto;
+  background-color: white;
+  border: 3px #ccc solid;
+  padding: 30px;
+  font-size: 16pt;
+}
