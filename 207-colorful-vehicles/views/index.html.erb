@@ -11,8 +11,10 @@
 
       <% Color.order(:name).each do |color| %>
 
-        <td style="background-color:<%= color.html_color_code %>">
-          <img src="/images/<%= vehicle.image_filename %>">
+        <td>
+          <div style="background-color:<%= color.html_color_code %>">
+            <img src="/images/<%= vehicle.image_filename %>">
+          </div>
         </td>
 
       <% end %>
