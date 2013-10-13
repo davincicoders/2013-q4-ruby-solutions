@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th></th>
+    <% Color.order(:name).each do |color| %>
+      <th><%= color.name %></th>
+    <% end %>
+  </tr>
+  <% Vehicle.order(:name).each do |vehicle| %>
+    <tr>
+      <th><%= vehicle.name %></td>
+
+      <% Color.order(:name).each do |color| %>
+
+        <td style="background-color:<%= color.html_color_code %>">
+          <img src="/images/<%= vehicle.image_filename %>">
+        </td>
+
+      <% end %>
+
+    </tr>
+  <% end %>
+</table>
