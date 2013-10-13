@@ -1,0 +1,10 @@
+<h1>Cycling dictionary</h1>
+
+<ul>
+  <% Definition.order(:term).each do |definition| %>
+    <li>
+      <b><%= definition.term %></b>
+      <i>(<%= definition.part_of_speech %>)</i>
+      <p><%= definition.meaning %></p>
+  <% end %>
+</ul>
