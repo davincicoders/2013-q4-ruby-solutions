@@ -1,0 +1,22 @@
+<h1>Contact Us</h1>
+
+<h2>Subject</h2>
+<%= text_field_tag "subject", "Request for information", size: 40 %>
+
+<h2>Body</h2>
+<%= text_area_tag "body", "Please add me to your mailing list",
+  rows: 3, cols: 40 %>
+<br>
+<br>
+
+<p>
+  <%= submit_tag "Send message" %>
+</p>
+
+<hr>
+<h3>Messages so far:</h3>
+<ul>
+  <% Message.order(:id).each do |message| %>
+    <li><%= message.subject %></li>
+  <% end %>
+</ul>

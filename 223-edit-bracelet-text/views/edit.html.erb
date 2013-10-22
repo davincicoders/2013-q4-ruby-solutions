@@ -1,0 +1,16 @@
+<p>
+  <%= label_tag "font_size" %>
+  <br>
+  <%= text_field_tag "font_size", @line.font_size %>
+  (between 8 and 12)
+</p>
+
+<p>
+  <%= label_tag "text" %>
+  <br>
+  <%= text_field_tag "text", @line.text, size: 50 %>
+</p>
+
+<p>
+  <%= submit_tag "Update" %>
+</p>
