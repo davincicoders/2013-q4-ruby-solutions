@@ -15,7 +15,8 @@
 <p>
   <%= label_tag "ended_term_early" %>
   <br>
-  <%= check_box_tag "ended_term_early", @president.ended_term_early %>
+  <%= check_box_tag "ended_term_early", "on",
+    @president.ended_term_early %>
 </p>
 
 <p>
