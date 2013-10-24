@@ -49,7 +49,7 @@
 <p>
   <%= label_tag "birth_state_id" %>
   <br>
-  <%= select_tag :birth_state_id,
+  <%= select_tag "birth_state_id",
     options_from_collection_for_select(State.all, :id, :name,
       @president.birth_state_id),
     prompt: "Choose birth state" %>
