@@ -1,0 +1,21 @@
+<%= error_messages_for @customer %>
+
+<h1>Page 1 of 4: Sign up</h1>
+
+<p>
+  <%= label_tag "first_name" %>
+  <br>
+  <%= text_field_tag "first_name", @customer.first_name %>
+</p>
+
+<p>
+  <%= label_tag "last_name" %>
+  <br>
+  <%= text_field_tag "last_name", @customer.first_name %>
+</p>
+
+<p>
+  <%= submit_tag "Go back" %>
+  or
+  <%= submit_tag "Continue" %>
+</p>
