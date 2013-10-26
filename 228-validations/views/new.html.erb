@@ -1,0 +1,26 @@
+<h1>Add new user</h1>
+
+<%= error_messages_for @user %>
+
+<p>
+  <%= label_tag :email %>
+  <br>
+  <%= text_field_tag :email, @user.email %>
+</p>
+
+<p>
+  <%= label_tag :first_name %>
+  <br>
+  <%= text_field_tag :first_name, @user.first_name %>
+</p>
+
+<p>
+  <%= label_tag :age %>
+  <br>
+  <%= text_field_tag :age, @user.age %>
+</p>
+
+<p>
+  <%= submit_tag "Add user" %>
+</p>
+
