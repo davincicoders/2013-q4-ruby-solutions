@@ -15,11 +15,6 @@ get "/private" do
   halt erb(:index)
 end
 
-get "/private" do
-  @stations = Station.where(property_type: "private")
-  halt erb(:index)
-end
-
 get "/zip/:zip_code" do
   zip_code = params["zip_code"]
   @stations = Station.where(zip_code: zip_code)
