@@ -2,7 +2,11 @@
 
 <a href="/">Back</a>
 
-<h1>Edit patient #<%= @patient.id %></h1>
+<% if @patient.id == nil %>
+  <h1>Add new patient</h1>
+<% else %>
+  <h1>Edit patient #<%= @patient.id %></h1>
+<% end %>
 
 <p>
   <%= label_tag "systolic" %>
