@@ -1,0 +1,14 @@
+<h1>List of players</h1>
+
+<ul>
+  <% @players.each do |player| %>
+    <li>
+      <a href="/players/<%= player.id %>">
+        <%= player.name %>
+      </a>
+      <% team = Team.find_by(id: player.team_id) %>
+      is on the <%= team.name %>
+      team
+    </li>
+  <% end %>
+</ul>

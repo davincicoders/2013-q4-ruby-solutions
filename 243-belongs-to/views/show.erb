@@ -1,0 +1,14 @@
+<a href="/">Back</a>
+
+<h1>Player details page</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @player.name %>
+</p>
+
+<p>
+  <b>Team name</b><br>
+  <% team = Team.find(@player.team_id) %>
+  <%= team.name %>
+</p>
