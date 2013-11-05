@@ -8,7 +8,7 @@ class InitialSchema < ActiveRecord::Migration
     end
 
     create_table :authors do |t|
-      t.string  :full_name
+      t.string  :first_name
       t.string  :email
     end
   end
