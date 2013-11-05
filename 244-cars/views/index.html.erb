@@ -1,0 +1,8 @@
+<% @cars.each do |car| %>
+  <h2>
+    <% member = Member.find_by(id: car.member_id) %>
+    <% if member != nil %>
+      <%= member.name %> has the <%= car.model %>.
+    <% end %>
+  </h2>
+<% end %>
