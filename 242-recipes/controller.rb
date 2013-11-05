@@ -14,8 +14,8 @@ end
 
 get "/by-author/:name" do
   name = params["name"]
-  author = Author.find_by(full_name: name)
+  author = Author.find_by(first_name: name)
   @recipes = Recipe.where(author_id: author.id)
-  @title = "Recipes by #{author.full_name}"
+  @title = "Recipes by #{author.first_name}"
   halt erb(:index)
 end
