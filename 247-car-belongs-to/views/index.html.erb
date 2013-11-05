@@ -1,0 +1,11 @@
+<% @cars.each do |car| %>
+  <h2>
+    <% if car.member == nil %>
+      No one
+    <% else %>
+      <%= car.member.name %>
+    <% end %>
+
+    has the <%= car.model %>.
+  </h2>
+<% end %>
