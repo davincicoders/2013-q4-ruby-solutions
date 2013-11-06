@@ -1,12 +1,21 @@
-<% @cars.each do |car| %>
-  <h2>
-    <% member = Member.find_by(id: car.member_id) %>
-    <% if member == nil %>
-      No one
-    <% else %>
-      <%= member.name %>
-    <% end %>
+<% @members.each do |member| %>
+  <h2><%= member.name %>'s cars:</h2>
 
-    has the <%= car.model %>.
-  </h2>
+  <% cars = Car.where(member_id: member.id) %>
+  <% if cars.size == 0 %>
+    (None)
+  <% else %>
+    <ul>
+    <% cars.each do |car| %>
+      <li><%= car.model %></li>
+    <% end %>
+    </ul>
+  <% end %>
 <% end %>
+
+<h2>No one's cars:</h2>
+<ul>
+  <% Car.where(member_id: nil).each do |car| %>
+    <li><%= car.model %></li>
+  <% end %>
+</ul>

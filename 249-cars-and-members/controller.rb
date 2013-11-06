@@ -1,6 +1,6 @@
 require './davinci-sinatra.rb'
 
 get "/" do
-  @cars = Car.order(:id)
+  @members = Member.order(:name)
   halt erb(:index)
 end
