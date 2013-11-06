@@ -1,0 +1,16 @@
+<a href="/">Back</a>
+
+<h1>Team details page</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @team.name %>
+</p>
+
+<p>
+  <b>Players</b><br>
+  <% Player.where(team_id: @team.id).each do |player| %>
+    <%= player.name %>
+    <br>
+  <% end %>
+</p>
