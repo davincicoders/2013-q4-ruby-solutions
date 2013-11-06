@@ -1,0 +1,20 @@
+<% @members.each do |member| %>
+  <h2><%= member.name %>'s cars:</h2>
+
+  <% if member.cars.size == 0 %>
+    (None)
+  <% else %>
+    <ul>
+    <% member.cars.each do |car| %>
+      <li><%= car.model %></li>
+    <% end %>
+    </ul>
+  <% end %>
+<% end %>
+
+<h2>No one's cars:</h2>
+<ul>
+  <% Car.where(member_id: nil).each do |car| %>
+    <li><%= car.model %></li>
+  <% end %>
+</ul>
