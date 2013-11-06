@@ -16,12 +16,11 @@
       <td><%= e.first_name %></td>
       <td><%= e.last_name %></td>
       <td>
-        <% company = Company.find_by(id: e.company_id) %>
-        <% if company == nil %>
+        <% if e.company == nil %>
           None
         <% else %>
-          <%= company.name %>
-          (<%= company.stock_symbol %>)
+          <%= e.company.name %>
+          (<%= e.company.stock_symbol %>)
         <% end %>
       </td>
     </tr>
