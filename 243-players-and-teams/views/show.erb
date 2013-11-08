@@ -9,6 +9,11 @@
 
 <p>
   <b>Team name</b><br>
+
+  <%# Look up the player's team_id, then the row in players that
+    # has an id that matches that team_id. %>
   <% team = Team.find(@player.team_id) %>
+
+  <%# Now we can print out that team's name. %>
   <%= team.name %>
 </p>

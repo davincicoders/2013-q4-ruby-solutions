@@ -1,14 +1,21 @@
 <h1>List of players</h1>
 
 <ul>
+  <%# Loop through each of the players in @players %>
   <% @players.each do |player| %>
+
     <li>
+      <%# Show the player's name, with a link to a details page %>
       <a href="/players/<%= player.id %>">
         <%= player.name %>
       </a>
+
+      <%# Look up the player's team_id, then the row in players that
+        # has an id that matches that team_id. %>
       <% team = Team.find_by(id: player.team_id) %>
-      is on the <%= team.name %>
-      team
+
+      <%# Now we can print out the team's name %>
+      is on the <%= team.name %> team
     </li>
   <% end %>
 </ul>

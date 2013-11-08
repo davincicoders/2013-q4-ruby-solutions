@@ -1,11 +1,25 @@
+<%# Loop through each of the cars passed to us from the controller %>
 <% @cars.each do |car| %>
-  <h2>
-    <% if car.member == nil %>
-      No one
-    <% else %>
-      <%= car.member.name %>
-    <% end %>
 
+  <h2>
+    <%# Look up the members row corresponding to this car's member_id.
+      # If the member method returns nil... %>
+    <% if car.member == nil %>
+
+      <%# Then print out "No one" for this car %>
+      No one
+
+    <% else %> <%# But if member method does return a member... %>
+
+      <%# Then print out that member's name.  We have to call
+        # car.member again since we didn't save it as a variable. %>
+      <%= car.member.name %>
+
+    <% end %> <%# Done with the branching %>
+
+    <%# Print out text regardless of whether member is nil or not %>
     has the <%= car.model %>.
+
   </h2>
-<% end %>
+
+<% end %> <%# Done with this car; go to the next %>

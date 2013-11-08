@@ -5,18 +5,29 @@
     <th>Name</th>
     <th>Author</th>
   </tr>
+
+  <%# Consider each recipe in the @recipes variable %>
   <% @recipes.each do |recipe| %>
+
     <tr>
+
       <td>
+        <%# Print out recipe's name, with a link to the details page %>
         <a href="/recipe/<%= recipe.name %>">
           <%= recipe.name %>
         </a>
       </td>
+
       <td>
-        <a href="/by-author/<%= Author.find(recipe.author_id).first_name %>">
+        <%# Find the authors row with an id matching the author_id
+          # of this recipe, and print out their first_name.  Also
+          # link to the page showing only recipes by this author. %>
+        <a href="/by-author/<%=
+                   Author.find(recipe.author_id).first_name %>">
           <%= Author.find(recipe.author_id).first_name %>
         </a>
       </td>
     </tr>
+
   <% end %>
 </table>

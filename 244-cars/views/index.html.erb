@@ -1,12 +1,30 @@
+<%# Loop through each of the cars (@cars was set by the controller) %>
 <% @cars.each do |car| %>
-  <h2>
-    <% member = Member.find_by(id: car.member_id) %>
-    <% if member == nil %>
-      No one
-    <% else %>
-      <%= member.username %>
-    <% end %>
 
+  <h2>
+
+    <%# Take this car's member_id, and find the row of members table
+      # that has an id matching it, and save it to the member variable %>
+    <% member = Member.find_by(id: car.member_id) %>
+
+    <%# If this car's member_id was nil, then no rows will match.  If
+      # no rows match, find_by will return nil.  If so... %>
+    <% if member == nil %>
+
+      <%# ...then print out "no one" %>
+      No one
+
+    <%# But if find_by didn't return nil... %>
+    <% else %>
+
+      <%# ...then print out that member's username %>
+      <%= member.username %>
+
+    <% end %> <%# End branching %>
+
+    <%# Text to print regardless of whether member was found or not. %>
     has the <%= car.model %>.
+
   </h2>
+
 <% end %>

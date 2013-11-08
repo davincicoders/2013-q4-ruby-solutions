@@ -8,6 +8,9 @@
       </a>
 
       consists of
+
+      <%# Load all players rows that have a team_id that matches
+      the current team's id, and loop through them %>
       <% Player.where(team_id: team.id).each do |player| %>
         <%= player.name %>
       <% end %>

@@ -2,9 +2,11 @@
 
 <a href="/">Back</a>
 
+<%# Check @patient.id to know whether we're on the add or edit page %>
 <% if @patient.id == nil %>
   <h1>Add new patient</h1>
 <% else %>
+  <%# For the edit page, show the patient's ID %>
   <h1>Edit patient #<%= @patient.id %></h1>
 <% end %>
 
@@ -21,9 +23,12 @@
 </p>
 
 <p>
+  <%# Check @patient.id to know whether we're on the Add or Edit page %>
   <% if @patient.id == nil %>
+    <%# The add page has only one button: Add %>
     <%= submit_tag "Add" %>
   <% else %>
+    <%# The edit page has two buttons: Update and Delete %>
     <%= submit_tag "Update" %>
     <%= submit_tag "Delete" %>
   <% end %>

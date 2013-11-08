@@ -5,18 +5,27 @@
     <th>Name</th>
     <th>Author</th>
   </tr>
+
+  <%# Loop through @recipes, which was assigned by the controller %>
   <% @recipes.each do |recipe| %>
     <tr>
+
       <td>
+        <%# Link to this particular recipe's details page %>
         <a href="/recipe/<%= recipe.name %>">
           <%= recipe.name %>
         </a>
       </td>
+
       <td>
+        <%# Show the name of this recipe's author, and link it
+          # to a page with just the recipes by that author. %>
         <a href="/by-author/<%= recipe.author.first_name %>">
           <%= recipe.author.first_name %>
         </a>
       </td>
+
     </tr>
   <% end %>
+
 </table>

@@ -1,12 +1,18 @@
 <h1>List of players</h1>
 
 <ul>
+  <%# Loop through each of the players assigned from the controller %>
   <% @players.each do |player| %>
+
     <li>
       <a href="/players/<%= player.id %>">
         <%= player.name %>
       </a>
+
+      <%# Look up the player's team, then the name of that team. %>
       is on the <%= player.team.name %> team
+
     </li>
+
   <% end %>
 </ul>

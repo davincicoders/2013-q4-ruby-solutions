@@ -34,6 +34,10 @@
     <td><%= text_field_tag "last_name", @new_employee.last_name,
       size: 10 %></td>
     <td>
+      <%# Show a dropdown box to pick a company.  The param value
+        # submited will be a company_id.  But the values shown in the
+        # drop down will come from the name field.  The dropdown will
+        # be pre-filled if a save failed. %>
       <%= select_tag "company_id", options_from_collection_for_select(
           Company.order(:id), :id, :name, @new_employee.company_id),
           prompt: "(Choose company)" %>
