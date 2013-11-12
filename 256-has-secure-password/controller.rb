@@ -41,13 +41,16 @@ end
 
 # Setup POST route to handle login form entries
 post "/login" do
+  username = params["username"]
+  attempted_password = params["password"]
+
   # Look for the user row matching the username that the user entered
-  named_user = User.find_by(username: params["username"])
+  named_user = User.find_by(username: username)
 
   if named_user == nil
     @message = "Unknown username"
     halt erb(:login)
-  elsif named_user.authenticate(params["password"]) == false
+  elsif named_user.authenticate(attempted_password) == false
     @message = "Wrong password"
     halt erb(:login)
   else
