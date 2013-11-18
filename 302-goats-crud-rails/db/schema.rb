@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130729050718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "racing_goats", force: true do |t|
+    t.string "name"
+    t.string "gender"
+    t.string "best_100m_time"
+    t.string "dietary_preference"
+  end
 
 end
