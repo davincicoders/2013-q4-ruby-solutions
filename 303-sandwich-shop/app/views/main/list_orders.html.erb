@@ -1,0 +1,29 @@
+<h1>Sub orders</h1>
+
+<table border="1">
+
+  <tr>
+    <th>ID</th>
+    <th>Sandwich type</th>
+    <th>Bread type</th>
+    <th>12 inch?</th>
+    <th>Extra meat?</th>
+    <th>Chips?</th>
+    <th>Price</th>
+    <th>Ordered at</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= order.sandwich_type %></td>
+      <td><%= order.bread_type %></td>
+      <td><%= order.is_twelve_inch %></td>
+      <td><%= order.has_extra_meat %></td>
+      <td><%= order.has_chips %></td>
+      <td>$<%= "%.2f" % order.total_price %></td>
+      <td><%= order.created_at %></td>
+    </tr>
+  <% end %>
+
+</table>

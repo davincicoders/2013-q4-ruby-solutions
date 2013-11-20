@@ -11,9 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20131120040723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sub_orders", force: true do |t|
+    t.string   "sandwich_type"
+    t.string   "bread_type"
+    t.boolean  "is_twelve_inch"
+    t.boolean  "has_extra_meat"
+    t.boolean  "has_chips"
+    t.float    "total_price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

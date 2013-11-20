@@ -1,0 +1,40 @@
+<%= form_tag "/" do %>
+  
+<%= error_messages_for @order %>
+
+<h1>Sub sandwich order form</h1>
+
+<p>
+  Base cost for 6 inch sub:
+  <b>$3.49</b>
+</p>
+
+<%= label_tag "sandwich_type" %>
+<%= select_tag "sandwich_type", options_for_select(
+  ["Italian", "B.L.T.", "Vegetarian", "Bacon Egg & Cheese"],
+  @order.sandwich_type), prompt: "" %>
+<br>
+
+<%= label_tag "bread_type" %>
+<%= select_tag "bread_type", options_for_select(["white", "wheat", "rye"],
+  @order.bread_type), prompt: "" %>
+<br>
+
+<%= check_box_tag "is_twelve_inch", "1", @order.is_twelve_inch %>
+<%= label_tag "is_twelve_inch", "Upgrade to 12 inch" %>
+<b>Add $2.00</b>
+<br>
+
+<%= check_box_tag "has_extra_meat", "1", @order.has_extra_meat %>
+<%= label_tag "has_extra_meat", "Extra meat" %>
+<b>Add $0.49</b>
+<br>
+
+<%= check_box_tag "has_chips", "1", @order.has_chips %>
+<%= label_tag "has_chips", "Add chips" %>
+<b>Add $0.99</b>
+<br>
+
+<%= submit_tag "Place order" %>
+
+<% end %>
