@@ -1,5 +1,5 @@
-employee1 = Employee.create! name: "Fred", boss: nil
-employee2 = Employee.create! name: "Sal",  boss: employee1
-employee3 = Employee.create! name: "Phil", boss: employee1
-employee4 = Employee.create! name: "Jim",  boss: employee2
+Employee.create! id: 1, name: "Fred", boss_employee_id: nil
+Employee.create! id: 2, name: "Sal",  boss_employee_id: 1
+Employee.create! id: 3, name: "Phil", boss_employee_id: 1
+Employee.create! id: 4, name: "Jim",  boss_employee_id: 2
 
