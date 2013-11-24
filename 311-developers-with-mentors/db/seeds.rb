@@ -1,12 +1,11 @@
-dev1 = Developer.create! name: "Ted"
-dev2 = Developer.create! name: "Ursula"
-dev3 = Developer.create! name: "Rita"
-dev4 = Developer.create! name: "Dan"
-dev5 = Developer.create! name: "Paula"
-dev6 = Developer.create! name: "Phil"
+Developer.create! id: 1, name: "Ted"
+Developer.create! id: 2, name: "Ursula"
+Developer.create! id: 3, name: "Rita"
+Developer.create! id: 4, name: "Dan"
+Developer.create! id: 5, name: "Paula"
+Developer.create! id: 6, name: "Phil"
 
-dev2.mentees << dev3
-dev2.mentees << dev4
-dev1.mentees << dev3
-dev5.mentees << dev6
-dev6.mentees << dev5
+Developer.find(2).mentee_ids = [3, 4]
+Developer.find(1).mentee_ids = [3]
+Developer.find(5).mentee_ids = [6]
+Developer.find(6).mentee_ids = [5]

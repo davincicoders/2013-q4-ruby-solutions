@@ -1,15 +1,13 @@
-photo1 = Photo.create! title: "Flatirons at dawn"
-photo2 = Photo.create! title: "Flatirons at sunset"
-photo3 = Photo.create! title: "Sunset from my window"
-photo4 = Photo.create! title: "Mysterious blur"
+Photo.create! id: 1, title: "Flatirons at dawn"
+Photo.create! id: 2, title: "Flatirons at sunset"
+Photo.create! id: 3, title: "Sunset from my window"
+Photo.create! id: 4, title: "Mysterious blur"
 
-tag1 = Tag.create! name: "Flatirons"
-tag2 = Tag.create! name: "dawn"
-tag3 = Tag.create! name: "sunset"
-tag4 = Tag.create! name: "Pluto"
+Tag.create! id: 1, name: "Flatirons"
+Tag.create! id: 2, name: "dawn"
+Tag.create! id: 3, name: "sunset"
+Tag.create! id: 4, name: "Pluto"
 
-photo1.tags << tag1
-photo1.tags << tag2
-photo2.tags << tag1
-photo2.tags << tag3
-photo3.tags << tag3
+Photo.find(1).tag_ids = [1, 2]
+Photo.find(2).tag_ids = [1, 3]
+Photo.find(3).tag_ids = [3]
