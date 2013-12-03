@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+  <div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @ad.company_name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @ad.duration %>
+</p>
+
+<a href="/edit_ad/<%= @ad.id %>">Edit</a> |
+<a href="/list_ads">Back</a>
