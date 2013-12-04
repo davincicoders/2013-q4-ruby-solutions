@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
   def root
-    redirect_to "/ads" and return
+    redirect_to ads_path and return
   end
 
   def index
