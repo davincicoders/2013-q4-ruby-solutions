@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.order(:id)
+    @events = Event.order(:id).all
     render :index and return
   end
 
@@ -12,7 +12,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new
-    @event.name = params["name"]
+    @event.name = params[:name]
+    year  = params[:start_date][:year ].to_i
+    month = params[:start_date][:month].to_i
+    day   = params[:start_date][:day  ].to_i
+    @event.start_date = Date.new(year, month, day)
+    @event.end_date = params[:end_date]
     if @event.save == true
       redirect_to events_path and return
     else
@@ -21,13 +26,17 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params["id"])
-    render :edit and return
+    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params["id"])
-    @event.name = params["name"]
+    @event = Event.find(params[:id])
+    @event.name = params[:name]
+    year  = params[:start_date][:year ].to_i
+    month = params[:start_date][:month].to_i
+    day   = params[:start_date][:day  ].to_i
+    @event.start_date = Date.new(year, month, day)
+    @event.end_date = params[:end_date]
     if @event.save == true
       redirect_to events_path and return
     else

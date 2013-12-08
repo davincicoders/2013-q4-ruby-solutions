@@ -3,17 +3,21 @@
 <table border='1'>
   <tr>
     <th>ID</th>
+    <th>Start date</th>
+    <th>End date</th>
     <th>Name</th>
   </tr>
   <% @events.each do |event| %>
     <tr>
       <td><%= event.id %></td>
+      <td><%= event.start_date %></td>
+      <td><%= event.end_date %></td>
       <td><%= event.name %></td>
       <td><%= link_to "Edit", edit_event_path(event) %></td>
     </tr>
   <% end %>
   <tr>
-    <td colspan="2">
+    <td colspan="4">
       <a href="/events/new">New Event</a>
     </td>
   </tr>
