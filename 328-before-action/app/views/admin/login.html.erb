@@ -1,18 +1,18 @@
 <h1>Login</h1>
 
-<%== form_tag "/admin/login" do %>
+<%= form_tag "/admin/login" do %>
   <p>
     Username
     <br>
-    <%== text_field_tag :username %>
+    <%= text_field_tag :username %>
   </p>
   <p>
     Password
     <br>
-    <%== password_field_tag :password %>
+    <%= password_field_tag :password %>
   </p>
   <p>
-    <%== submit_tag "Login" %>
+    <%= submit_tag "Login" %>
   </p>
 <% end %>
 

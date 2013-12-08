@@ -1,4 +1,12 @@
 class AdminController < ApplicationController
+  before_action except: ["login", "login_post", "logout"] do
+    if session[:admin_id] != nil
+      @admin = Admin.find_by(id: session[:admin_id])
+    else
+      flash[:error] = "You must be logged in to see that page."
+      redirect_to "/admin/login" and return
+    end
+  end
 
   def login
     render :login and return
@@ -22,25 +30,11 @@ class AdminController < ApplicationController
   end
 
   def index
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     @houses = House.order(:id)
     render :index and return
   end
 
   def index_post
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     House.all.each do |house|
       if params[:commit] == "Delete house #{house.id}"
         house.destroy
@@ -50,25 +44,11 @@ class AdminController < ApplicationController
   end
 
   def edit
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     @house = House.find_by(id: params[:id])
     render :edit and return
   end
 
   def edit_post
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     @house                 = House.find_by(id: params["id"])
     @house.address         = params["address"]
     @house.city            = params["city"]
@@ -87,25 +67,11 @@ class AdminController < ApplicationController
   end
 
   def new
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     @house = House.new
     render :new and return
   end
 
   def new_post
-    if session[:admin_id] != nil
-      @admin = Admin.find_by(id: session[:admin_id])
-    else
-      flash[:error] = "You must be logged in to see that page."
-      redirect_to "/admin/login" and return
-    end
-
     @house                 = House.new
     @house.address         = params["address"]
     @house.city            = params["city"]

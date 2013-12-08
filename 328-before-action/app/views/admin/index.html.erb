@@ -1,4 +1,4 @@
-<%== form_tag "/admin/houses" do %>
+<%= form_tag "/admin/houses" do %>
 
 <h1>Index of houses</h1>
 
@@ -19,7 +19,7 @@
         <a href="/admin/houses/<%= house.id %>">Edit</a>
       </td>
       <td>
-        <%== submit_tag "Delete house #{house.id}" %>
+        <%= submit_tag "Delete house #{house.id}" %>
       </td>
     </tr>
   <% end %>
