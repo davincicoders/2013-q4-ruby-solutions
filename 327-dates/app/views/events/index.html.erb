@@ -6,18 +6,22 @@
     <th>Start date</th>
     <th>End date</th>
     <th>Name</th>
+    <th>Created at</th>
+    <th>Updated at</th>
   </tr>
   <% @events.each do |event| %>
     <tr>
       <td><%= event.id %></td>
-      <td><%= event.start_date %></td>
-      <td><%= event.end_date %></td>
+      <td><%= event.start_date.strftime("%A, %B %d, %Y") %></td>
+      <td><%= event.end_date.strftime("%a %b %d").upcase %></td>
       <td><%= event.name %></td>
+      <td><%= event.created_at.getlocal.strftime("%I:%M %p") %></td>
+      <td><%= event.updated_at.strftime("%H%M %Z") %></td>
       <td><%= link_to "Edit", edit_event_path(event) %></td>
     </tr>
   <% end %>
   <tr>
-    <td colspan="4">
+    <td colspan="6">
       <a href="/events/new">New Event</a>
     </td>
   </tr>
