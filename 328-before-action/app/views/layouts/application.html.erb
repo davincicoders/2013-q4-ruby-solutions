@@ -8,6 +8,18 @@
 </head>
 <body>
 
+<% if flash[:error] != nil %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if @admin != nil %>
+  You are logged in as <b><%= @admin.username %></b>.
+  <a href="/admin/logout">Logout</a>
+  <hr>
+<% end %>
+
 <%= yield %>
 
 </body>
