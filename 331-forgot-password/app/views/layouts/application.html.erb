@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:error] != nil %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash[:success] != nil %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<% if flash[:remind_to_verify_email] %>
+  <div class="alert alert-info">
+    Please click the link in the email you were sent to verify your email address.
+    <%= form_tag resend_verification_email_path do %>
+      <%= hidden_field_tag :afterwards_go_to, request.path_info %>
+      <%= submit_tag "Resend email" %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @logged_in_user != nil %>
+  <%= form_tag logout_path do %>
+    You are logged in as <b><%= @logged_in_user.email %></b>.
+    <%= submit_tag "Logout" %>
+  <% end %>
+  <hr>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

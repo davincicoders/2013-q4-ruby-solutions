@@ -84,4 +84,58 @@ class UsersController < ApplicationController
     flash[:success] = "Verification email sent."
     redirect_to params[:afterwards_go_to]
   end
+
+  def forgot_password
+    render :forgot_password and return
+  end
+
+  def forgot_password_post
+    user = User.find_by(email: params["email"])
+    if user != nil
+      Pony.mail(
+        to:      user.email,
+        subject: "Password reset request",
+        body:    "Please click the following link to reset your password:
+#{reset_password_url(user.id, user.email_verification_token)}"
+      )
+      flash[:success] = "Password reset sent."
+      redirect_to users_path
+    else
+      flash[:error] = "Couldn't find user record for that email."
+      redirect_to users_path
+    end
+  end
+
+  def reset_password
+    @user = User.where(id: params[:user_id]).first
+    if @user != nil
+      if @user.email_verification_token == params[:token]
+        @user.was_email_verified = true
+        @user.save!
+        session[:logged_in_user_id] = @user.id
+      else
+        flash[:error] = "Wrong email verification token"
+      end
+      render :reset_password and return
+    else
+      flash[:error] = "Couldn't find user with that ID"
+    end
+  end
+
+  def reset_password_post
+    @user = @logged_in_user
+    if params[:password] == ""
+      flash.now[:error] = "Password cannot be blank."
+      render :reset_password and return
+    else
+      @user.password                 = params[:password]
+      @user.password_confirmation    = params[:password_confirmation]
+      if @user.save == true
+        flash[:success] = "Password has been set."
+        redirect_to users_path and return
+      else
+        render :reset_password and return
+      end
+    end
+  end
 end
