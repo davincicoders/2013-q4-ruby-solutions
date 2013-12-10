@@ -1,0 +1,12 @@
+form.login {
+  border: 1px gray dotted;
+  padding: 20px;
+  margin-right: 20px;
+}
+form.login h2 {
+  margin: 0;
+}
+form.login label {
+  display: inline-block;
+  width: 70px;
+}
