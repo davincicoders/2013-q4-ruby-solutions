@@ -1,43 +1,91 @@
-%p Email
-%p Calendar
-%p Notes
-
-%p Search
-
-%p Backing up email...
-%p Cancel
-
-%p Inbox
-%p Outbox
-%p Sent
-%p Archived
-%p Deleted
-
-%p Compose
-%p Reply
-%p Reply All
-%p Delete
-
-%table
-  %tr
-    %th From
-    %th Subject
-    %th Date
-  %tr
-    %td Siamese
-    %td Urgent Cheetah puma
-    %td Yesterday
-  %tr
-    %td Munchkin
-    %td Kitty cheetah
-    %td Tuesday
-  %tr
-    %td Panther
-    %td Manx Birman
-    %td Monday
-
-%p Newest
-%p 5
-%p 6
-%p 7
-%p Oldest
+%nav.navbar.navbar-default
+  .col-sm-8
+    %ul.nav.navbar-nav
+      %li.active
+        %a{href: "#"} Email
+      %li
+        %a{href: "#"} Calendar
+      %li
+        %a{href: "#"} Notes
+  .col-sm-4
+    %form.navbar-form.navbar-left
+      .input-group
+        %input.form-control{placeholder: "Search", type: "text"}/
+        %span.input-group-btn
+          %button.btn.btn-default
+            %span.glyphicon.glyphicon-search
+.container
+  .alert.alert-info
+    Backing up email...
+    %br/
+    %br/
+    .row
+      .col-sm-10
+        .progress.progress-striped
+          .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "45", style: "width: 45%"}
+      .col-sm-2
+        %button.btn.btn-default{type: "button"} Cancel
+  .row
+    .col-sm-4
+      .list-group
+        %a.list-group-item.active{href: "#"}
+          %span.glyphicon.glyphicon-inbox
+          \ 
+          Inbox
+        %a.list-group-item{href: "#"}
+          %span.glyphicon.glyphicon-inbox
+          \ 
+          Outbox
+        %a.list-group-item{href: "#"}
+          %span.glyphicon.glyphicon-send
+          \ 
+          Sent
+        %a.list-group-item{href: "#"}
+          %span.glyphicon.glyphicon-inbox
+          \ 
+          Archived
+        %a.list-group-item{href: "#"}
+          %span.glyphicon.glyphicon-trash
+          \ 
+          Deleted
+    .col-sm-8
+      %button.btn.btn-default Compose
+      %button.btn.btn-default Reply
+      %button.btn.btn-default Reply All
+      %button.btn.btn-danger.pull-right Delete
+      %br/
+      %br/
+      %table.table.table-striped.table-condensed
+        %tr
+          %th From
+          %th Subject
+          %th Date
+        %tr.active
+          %td Siamese
+          %td
+            %span.label.label-warning Urgent
+            Cheetah puma
+          %td Yesterday
+        %tr
+          %td Munchkin
+          %td Kitty cheetah
+          %td Tuesday
+        %tr
+          %td Panther
+          %td Manx Birman
+          %td Monday
+      %ul.pager
+        %li.previous
+          %a{href: "#"}
+            %span.glyphicon.glyphicon-fast-backward
+            Newest
+        %li
+          %a{href: "#"} 5
+        %li.active.disabled
+          %a{href: "#"} 6
+        %li
+          %a{href: "#"} 7
+        %li.next
+          %a{href: "#"}
+            Oldest
+            %span.glyphicon.glyphicon-fast-forward
