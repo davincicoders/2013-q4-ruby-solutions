@@ -9,7 +9,20 @@
 <body>
 
 <div class='container' style='max-width: 730px'>
-  <%= render "shared/navbar" %>
+  <nav class='navbar navbar-static-top' role='navigation'>
+    <div style='position: absolute; top: 11px'>
+      <a class='navbar-brand' href='#' style='padding: 0'>
+        <%= logo_image %>
+      </a>
+    </div>
+    <ul class='nav nav-tabs'>
+      <%= navbar_tab("/users",    "users")    %>
+      <%= navbar_tab("/form2",    "form2")    %>
+      <%= navbar_tab("/form1",    "form1")    %>
+      <%= navbar_tab("/calendar", "calendar") %>
+      <%= navbar_tab("/symbols",  "symbols")  %>
+    </ul>
+  </nav>
 
   <% flash.keys.each do |key| %>
     <div class="flash flash-<%= key %>">
@@ -19,7 +32,11 @@
   
   <%= yield %>
 
-  <%= render "shared/footer" %>
+  <hr>
+  <div class='footer'>
+    The DaVinci Institute is a 501(c)(3) non-profit
+    under the laws of the state of Colorado.
+  </div>
 
 </div><!-- end .container -->
 
